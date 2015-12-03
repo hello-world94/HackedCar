@@ -3,7 +3,7 @@
  */
 
 /**
- This File Will Have To Be Debugged At The Event
+ TODO: This File Will Have To Be Debugged At The Event
  */
 
 var io = require("pi-gpio");
@@ -13,6 +13,7 @@ var io = require("pi-gpio");
 module.exports = function ()
 {
     return {
+        //TODO: How do we control?
         //car control
         forward: function(){},
         backwards: function(){},
