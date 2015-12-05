@@ -4,12 +4,14 @@
 var express = require("express");
 var app = express();
 var body_parser = require("body-parser");
-var cookie = require("cookie-parser");
 var override = require("method-override");
-var socket_io = require("socket.io");
+
+//
+var server = require('http').Server(app);
+var io = require("socket.io")(server);
 
 //setup body parsing
-app.use(body_parser.urlencoded({extended:false}));
+app.use(body_parser.urlencoded({extended: false}));
 //parse json
 app.use(body_parser.json());
 
@@ -18,11 +20,12 @@ app.use(override('X_HTTP_Method-Override'));
 
 //routes
 var route_io_pins = require("./routes/gpio.js")();
-var route_socket = require("./routes/connection.js")();
+var route_socket = require("./routes/connection.js")(io, route_io_pins);
 
 
-app.get('/',function(req,res){
-    res.send("Hello World");
+app.get('/', function (req, res)
+{
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 app.listen(8080);

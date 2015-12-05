@@ -6,7 +6,7 @@
  TODO: This File Will Have To Be Debugged At The Event
  */
 
-var io = require("pi-gpio");
+//var io = require("pi-gpio");
 
 //open required pins
 //pins.open() --ect
