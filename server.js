@@ -21,11 +21,14 @@ app.use(override('X_HTTP_Method-Override'));
 //routes
 var route_io_pins = require("./routes/gpio.js")();
 var route_socket = require("./routes/connection.js")(io, route_io_pins);
+var route_paths = require("./routes/paths.js")(app);
 
 
 app.get('/', function (req, res)
 {
     res.sendFile(__dirname + '/public/index.html');
 });
+
+//app.use(express.static('public'));
 
 app.listen(8080);

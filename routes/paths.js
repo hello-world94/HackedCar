@@ -6,6 +6,7 @@ module.exports = function (app)
 {
     app.get('/resources/socket.io.js', function (req,res)
     {
-        res.send("./node_modules/socket.io/socket.io-client/socket.io.js")
+        //TODO: Fix me
+        res.sendFile(__dirname + "/../node_modules/socket.io/socket.io-client/socket.io.js")
     });
 };
