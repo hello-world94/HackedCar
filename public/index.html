@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
         <meta charset="UTF-8">
         <title></title>
+        <script src="/javascripts/app.js"></script>
+        <script src="/javascripts/socket.io.js"></script>
+        <style>
+            #stream{
+                width: 100%;
+                height:auto;
+            }
+        </style>
     </head>
-    <body>
-        Socket Testing
-        <script src="/resources/socket.io.js"></script>
-        <script>
-            var socket = io.connect('http://localhost');
-            socket.on('news', function (data) {
-                console.log(data);
-                socket.emit('my other event', { my: 'data' });
-            });
-        </script>
+    <body ng-app="">
+        <img id="stream" src="http://10.70.6.39:8000/?action=stream" />
     </body>
 </html>
